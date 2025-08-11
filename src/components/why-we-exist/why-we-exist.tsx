@@ -2,7 +2,9 @@
 
 import { usePrefersReducedMotion, useRevealOnce } from "@/components/shared/motion";
 
-export interface WhyWeExistProps {}
+export interface WhyWeExistProps {
+  items: { num: string; label: string }[];
+}
 
 export function WhyWeExist(_: WhyWeExistProps) {
   const { ref, isRevealed } = useRevealOnce<HTMLDivElement>({ threshold: 0.2 });

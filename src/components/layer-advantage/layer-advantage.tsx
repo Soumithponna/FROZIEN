@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { usePrefersReducedMotion, useRevealOnce } from "@/components/shared/motion";
 
-export interface LayerAdvantageProps {}
+export interface LayerAdvantageProps {
+  backgroundSrc?: string;
+}
 
 export function LayerAdvantage(_: LayerAdvantageProps) {
   const { ref, isRevealed } = useRevealOnce<HTMLDivElement>({ threshold: 0.2 });

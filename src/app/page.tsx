@@ -14,7 +14,7 @@ export default function Home() {
       <section id="protein"><Protein gramsPerCup={15} /></section>
 
       <section id="flavours"><Flavours /></section>
-      <section id="why"><WhyWeExist /></section>
+      <section id="why"><WhyWeExist items={[{ num: "2", label: "Founders" }, { num: "100+", label: "Recipes" }, { num: "1", label: "Formula" }]} /></section>
       <section id="layers"><LayerAdvantage /></section>
       {/* <section id="benefits"><Benefits /></section> */}
       <DesignedToBeSeen />

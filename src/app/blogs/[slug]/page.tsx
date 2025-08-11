@@ -1,22 +1,20 @@
 import Image from "next/image";
-import { BLOG_POSTS, findPostBySlug, getAllBlogSlugs } from "../posts";
-
-interface Params {
-  params: { slug: string };
-}
+import { findPostBySlug, getAllBlogSlugs } from "../posts";
 
 export async function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: Params) {
-  const post = findPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = findPostBySlug(slug);
   if (!post) return { title: "Blog – Frozien" };
   return { title: `${post.title} – Frozien`, description: post.excerpt };
 }
 
-export default function BlogPostPage({ params }: Params) {
-  const post = findPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = findPostBySlug(slug);
   if (!post) {
     return (
       <main className="bg-background text-foreground">

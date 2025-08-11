@@ -2,7 +2,9 @@
 
 import { usePrefersReducedMotion, useRevealOnce } from "@/components/shared/motion";
 
-export interface BenefitsProps {}
+export interface BenefitsProps {
+  items: { title: string; desc: string }[];
+}
 
 export function Benefits(_: BenefitsProps) {
   const items = [

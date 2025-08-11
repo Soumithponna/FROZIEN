@@ -21,7 +21,7 @@ export interface RevealOptions {
 }
 
 export function useRevealOnce<T extends HTMLElement>(options: RevealOptions = {}): {
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
   isRevealed: boolean;
 } {
   const { threshold = 0.15, rootMargin = "0px" } = options;

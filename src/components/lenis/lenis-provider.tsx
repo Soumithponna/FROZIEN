@@ -46,7 +46,7 @@ export function LenisProvider({ children }: { children: ReactNode }) {
     };
   }, [reduced]);
 
-  return children as JSX.Element;
+  return <>{children}</>;
 }
 
 
