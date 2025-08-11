@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Frozien – Protein-packed. Guilt-free. Beautifully layered.",
+  title: "Frozein – Protein-packed. Guilt-free. Beautifully layered.",
   description: "High-protein, low-calorie, vegan ice-cream. Order on Zepto or Swiggy.",
 };
 

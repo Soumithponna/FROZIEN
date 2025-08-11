@@ -13,7 +13,7 @@ const LOCATIONS: VendingLocation[] = [
 ];
 
 export const metadata = {
-  title: "Vending Machines – Frozien",
+  title: "Vending Machines – Frozein",
   description: "Find vending machines near you and learn how to use them.",
 };
 

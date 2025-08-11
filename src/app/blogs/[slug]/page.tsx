@@ -8,8 +8,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = findPostBySlug(slug);
-  if (!post) return { title: "Blog – Frozien" };
-  return { title: `${post.title} – Frozien`, description: post.excerpt };
+  if (!post) return { title: "Blog – Frozein" };
+  return { title: `${post.title} – Frozein`, description: post.excerpt };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

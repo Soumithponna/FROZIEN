@@ -31,7 +31,7 @@ export function Footer(props: FooterProps) {
           </nav>
         </div>
         <div className="mt-6 border-t border-foreground/10 pt-6 text-center text-xs text-foreground/60">
-          © {new Date().getFullYear()} Frozien. All rights reserved.
+          © {new Date().getFullYear()} Frozein. All rights reserved.
         </div>
       </div>
     </footer>

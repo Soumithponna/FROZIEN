@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "About – Frozien",
-  description: "Our purpose, principles, and the people behind Frozien.",
+  title: "About – Frozein",
+  description: "Our purpose, principles, and the people behind Frozein.",
 };
 
 export default function AboutPage() {
@@ -20,7 +20,7 @@ export default function AboutPage() {
               <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: "var(--color-brand)" }} />
               About
             </span>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">Why we build Frozien</h1>
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">Why we build Frozein</h1>
             <p className="mx-auto mt-3 max-w-prose text-foreground/80 md:text-lg">We’re on a mission to make protein simple, beautiful, and crave‑worthy.</p>
           </div>
         </div>
@@ -31,7 +31,7 @@ export default function AboutPage() {
         <div className="grid items-start gap-8 md:grid-cols-[1.15fr_1fr] md:gap-12">
           <div className="space-y-4">
             <p className="text-foreground/80 md:text-lg">
-              Frozien started with a simple idea: dessert can be functional. We craft
+              Frozein started with a simple idea: dessert can be functional. We craft
               protein ice cream that fits busy lives without giving up on taste or design.
             </p>
             <p className="text-foreground/80 md:text-lg">
@@ -59,8 +59,8 @@ export default function AboutPage() {
             </ul>
             <div className="mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-foreground/70">Contact</div>
             <ul className="mt-2 grid gap-2">
-              <li>Email: hello@frozien.com</li>
-              <li>Instagram: @frozien</li>
+              <li>Email: hello@frozein.com</li>
+              <li>Instagram: @frozein</li>
             </ul>
           </div>
         </div>

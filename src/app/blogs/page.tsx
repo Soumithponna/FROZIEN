@@ -2,8 +2,8 @@ import Image from "next/image";
 import { BLOG_POSTS } from "./posts";
 
 export const metadata = {
-  title: "Blogs – Frozien",
-  description: "Stories, tips, and design notes from Frozien.",
+  title: "Blogs – Frozein",
+  description: "Stories, tips, and design notes from Frozein.",
 };
 
 export default function BlogsPage() {

@@ -23,7 +23,7 @@ const PRODUCTS: Product[] = [
 ];
 
 export const metadata = {
-  title: "Shop – Frozien",
+  title: "Shop – Frozein",
   description: "Browse high-protein ice cream cups.",
 };
 
