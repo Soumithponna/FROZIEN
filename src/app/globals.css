@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* Ice-cream themed palette */
+  --background: oklch(98.7% 0.022 95.277); /* softer cream */
   --foreground: #171717;
+  --brand: oklch(63% 0.215 20); /* berry accent for CTAs */
+  --brand-contrast: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-contrast: var(--brand-contrast);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Motion-safe hero spring-like entrance using keyframes (transform + opacity only) */
+@keyframes hero-enter-keyframes {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-hero-enter {
+  animation: hero-enter-keyframes 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Reduced motion: disable transforms, keep opacity quick fade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-hero-enter {
+    animation: none;
+  }
+}
+
+/* Floating animation for flavour ingredients */
+@keyframes floaty {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25% { transform: translate3d(-4px, -10px, 0) rotate(-3deg); }
+  50% { transform: translate3d(2px, -16px, 0) rotate(2deg); }
+  75% { transform: translate3d(6px, -8px, 0) rotate(4deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+/* Lenis recommended CSS */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
