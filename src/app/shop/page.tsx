@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GlassCard } from "@/components/shared/glass-card";
 
 interface Product {
   slug: string;
@@ -7,24 +8,24 @@ interface Product {
   priceInr: number;
   calories: number;
   proteinGrams: number;
-  icecreamgar: number; // always 0 per requirements
+  addedSugar: number; // always 0 per requirements
 }
 
 const PRODUCTS: Product[] = [
-  { slug: "blueberry-cheesecake", name: "Blueberry Cheesecake", image: "/cake.png", priceInr: 199, calories: 180, proteinGrams: 15, icecreamgar: 0 },
-  { slug: "triple-chocolate", name: "Triple Chocolate", image: "/triple.png", priceInr: 199, calories: 195, proteinGrams: 16, icecreamgar: 0 },
-  { slug: "cookies-cream", name: "Cookies & Cream", image: "/oreo.png", priceInr: 199, calories: 190, proteinGrams: 15, icecreamgar: 0 },
-  { slug: "brownie-fudge", name: "Choco Brownie Fudge", image: "/fudge.png", priceInr: 199, calories: 200, proteinGrams: 17, icecreamgar: 0 },
+  { slug: "blueberry-cheesecake", name: "Blueberry Cheesecake", image: "/cake.png", priceInr: 99, calories: 180, proteinGrams: 15, addedSugar: 0 },
+  { slug: "triple-chocolate", name: "Triple Chocolate", image: "/triple.png", priceInr: 99, calories: 195, proteinGrams: 16, addedSugar: 0 },
+  { slug: "cookies-cream", name: "Cookies & Cream", image: "/oreo.png", priceInr: 99, calories: 190, proteinGrams: 15, addedSugar: 0 },
+  { slug: "brownie-fudge", name: "Choco Brownie Fudge", image: "/fudge.png", priceInr: 99, calories: 200, proteinGrams: 17, addedSugar: 0 },
   // Additional flavours
-  { slug: "almond-fudge", name: "Almond Fudge", image: "/almondf.png", priceInr: 199, calories: 210, proteinGrams: 18, icecreamgar: 0 },
-  { slug: "dbc", name: "DBC (Death By Chocolate)", image: "/dbc1.png", priceInr: 199, calories: 215, proteinGrams: 18, icecreamgar: 0 },
-  { slug: "tiramisu", name: "Tiramisu", image: "/tiramisu.png", priceInr: 199, calories: 185, proteinGrams: 16, icecreamgar: 0 },
-  { slug: "coffee fudge swirl", name: "Coffee Fudge Swirl", image: "/swirl.png", priceInr: 199, calories: 205, proteinGrams: 17, icecreamgar: 0 },
+  { slug: "almond-fudge", name: "Almond Fudge", image: "/almondf.png", priceInr: 99, calories: 210, proteinGrams: 18, addedSugar: 0 },
+  { slug: "dbc", name: "DBC (Death By Chocolate)", image: "/dbc1.png", priceInr: 99, calories: 215, proteinGrams: 18, addedSugar: 0 },
+  { slug: "tiramisu", name: "Tiramisu", image: "/tiramisu.png", priceInr: 99, calories: 185, proteinGrams: 16, addedSugar: 0 },
+  { slug: "coffee fudge swirl", name: "Coffee Fudge Swirl", image: "/swirl.png", priceInr: 99, calories: 205, proteinGrams: 17, addedSugar: 0 },
 ];
 
 export const metadata = {
-  title: "Shop – Frozein",
-  description: "Browse high-protein ice cream cups.",
+  title: "Shop FROZEIN | High-Protein Ice Cream, Delivered to Your Door",
+  description: "Order guilt-free, protein-packed FROZEIN ice cream today. 4 flavours, shipped fresh.",
 };
 
 export default function ShopPage() {
@@ -42,7 +43,7 @@ export default function ShopPage() {
 
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUCTS.map((p) => (
-            <li key={p.slug} className="group overflow-hidden rounded-3xl border border-foreground/10 bg-white/60 shadow-sm backdrop-blur transition-transform duration-200 ease-out motion-safe:hover:scale-[1.01]">
+            <GlassCard key={p.slug} as="li" className="group overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
               <div className="relative aspect-[4/3]">
                 <Image src={p.image} alt={p.name} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
@@ -64,11 +65,11 @@ export default function ShopPage() {
                   <div className="font-semibold">{p.proteinGrams}g</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-foreground/70">Icecreamgar</div>
-                  <div className="font-semibold">{p.icecreamgar}</div>
+                  <div className="text-foreground/70">Added Sugar</div>
+                  <div className="font-semibold">{p.addedSugar}g</div>
                 </div>
               </div>
-              <div className="flex items-center gap-2 border-t border-foreground/10 p-4">
+              <div className="flex items-center gap-2 border-t border-white/20 p-4">
                 <a
                   href="https://www.zeptonow.com/"
                   target="_blank"
@@ -83,12 +84,12 @@ export default function ShopPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Order ${p.name} on Instamart`}
-                  className="inline-flex flex-1 items-center justify-center rounded-full border border-foreground/15 bg-white/70 px-4 py-2 text-sm font-medium text-foreground/90 shadow-sm backdrop-blur transition-colors hover:bg-white"
+                  className="inline-flex flex-1 items-center justify-center rounded-full border border-white/15 bg-white/30 px-4 py-2 text-sm font-medium text-foreground/90 shadow-sm backdrop-blur transition-colors hover:bg-white/40"
                 >
                   Order on Instamart
                 </a>
               </div>
-            </li>
+            </GlassCard>
           ))}
         </ul>
       </section>

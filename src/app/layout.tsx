@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Frozein – Protein-packed. Guilt-free. Beautifully layered.",
   description: "High-protein, low-calorie, vegan ice-cream. Order on Zepto or Swiggy.",
+  icons: {
+    icon: "/logo/favicon.png",
+  },
 };
 
 export default function RootLayout({

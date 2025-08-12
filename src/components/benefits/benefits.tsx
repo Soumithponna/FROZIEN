@@ -1,6 +1,7 @@
 "use client";
 
 import { usePrefersReducedMotion, useRevealOnce } from "@/components/shared/motion";
+import { GlassCard } from "@/components/shared/glass-card";
 
 export interface BenefitsProps {
   items: { title: string; desc: string }[];
@@ -31,9 +32,9 @@ export function Benefits(_: BenefitsProps) {
       >
         <div className="grid gap-4 md:grid-cols-3 md:gap-6">
           {items.map((b, idx) => (
-            <div
+            <GlassCard
               key={b.title}
-              className="rounded-2xl border border-foreground/10 bg-[--color-background] p-5 shadow-sm"
+              className="p-5"
               style={{
                 opacity: isRevealed || reduced ? 1 : 0,
                 transform: reduced ? "none" : isRevealed ? "translateY(0)" : "translateY(8px)",
@@ -45,7 +46,7 @@ export function Benefits(_: BenefitsProps) {
             >
               <div className="text-base font-semibold">{b.title}</div>
               <div className="mt-1 text-sm text-foreground/70">{b.desc}</div>
-            </div>
+            </GlassCard>
           ))}
         </div>
       </div>

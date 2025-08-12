@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { usePrefersReducedMotion, useRevealOnce } from "@/components/shared/motion";
+import { GlassCard } from "@/components/shared/glass-card";
 
 export interface LayerAdvantageProps {
   backgroundSrc?: string;
@@ -51,7 +52,7 @@ export function LayerAdvantage(_: LayerAdvantageProps) {
               {items.map((item, idx) => (
                 <li
                   key={item.title}
-                  className="rounded-2xl border border-foreground/10 bg-[--color-background] p-4 shadow-sm"
+                  className="rounded-2xl border border-white/15 bg-white/10 p-4 shadow-sm backdrop-blur"
                   style={{
                     opacity: isRevealed || reduced ? 1 : 0,
                     transform: reduced ? "none" : isRevealed ? "translateY(0)" : "translateY(8px)",

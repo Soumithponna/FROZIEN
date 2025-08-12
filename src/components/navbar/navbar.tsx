@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/components/shared/motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Navbar() {
   const reduced = usePrefersReducedMotion();
@@ -50,14 +51,14 @@ export function Navbar() {
               }
             }}
           >
-            FROZIEN
+            <Image src="/logo/logo.png" alt="Frozein" width={90} height={90} />
           </Link>
           <div className="hidden items-center gap-6 md:flex">
-            <a href="#flavours" className="hover:opacity-80 transition-opacity">Flavours</a>
             <a href="/shop" className="hover:opacity-80 transition-opacity">Shop</a>
             <a href="/vending" className="hover:opacity-80 transition-opacity">Vending</a>
-            <a href="/blogs" className="hover:opacity-80 transition-opacity">Blogs</a>
             <a href="/about" className="hover:opacity-80 transition-opacity">About</a>
+            <a href="/blogs" className="hover:opacity-80 transition-opacity">Blogs</a>
+          
           </div>
           <div className="flex items-center gap-2">
             <a

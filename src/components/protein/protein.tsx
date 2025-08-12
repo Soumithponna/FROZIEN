@@ -1,6 +1,7 @@
 "use client";
 
 import { usePrefersReducedMotion, useRevealOnce } from "@/components/shared/motion";
+import { GlassCard } from "@/components/shared/glass-card";
 
 export interface ProteinProps {
   gramsPerCup?: number;
@@ -10,15 +11,6 @@ export function Protein(props: ProteinProps) {
   const { gramsPerCup = 15 } = props;
   const { ref, isRevealed } = useRevealOnce<HTMLDivElement>({ threshold: 0.18 });
   const reduced = usePrefersReducedMotion();
-
-  const features = [
-    { title: `${gramsPerCup}g+ Protein`, desc: "Real macro nutrition in every cup." },
-    { title: "Complete Profile", desc: "Balanced amino acids for recovery." },
-    { title: "Low Sugar", desc: "Sweetness without the crash." },
-    { title: "Plant-Based", desc: "Clean protein. Dairy-free." },
-    { title: "Light & Satiating", desc: "Keeps you full, not heavy." },
-    { title: "Cold-Crafted", desc: "Smooth texture, better experience." },
-  ];
 
   return (
     <section className="relative bg-background text-foreground">
@@ -33,59 +25,68 @@ export function Protein(props: ProteinProps) {
             : "opacity 240ms ease-out, transform 260ms cubic-bezier(0.22,1,0.36,1)",
         }}
       >
-        <div className="grid items-center gap-8 md:grid-cols-[1.05fr_1fr] md:gap-12">
-          {/* Copy + features */}
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-xl border border-foreground/10 bg-white/60 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-foreground/80 shadow-sm backdrop-blur">
-              <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: "var(--color-brand)" }} />
-              Protein
-            </span>
-            <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-              Protein ice cream
-            </h2>
-            <p className="mt-3 max-w-prose text-foreground/80 md:text-lg">
-              Built for goals and cravings. High‑protein, low‑sugar, and plant‑based — so you can enjoy dessert and still hit your macros.
-            </p>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/30 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-foreground/80 shadow-sm backdrop-blur">
+            <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: "var(--color-brand)" }} />
+            Protein
+          </span>
+          <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">Protein that satisfies</h2>
+          <p className="mt-3 mx-auto max-w-prose text-foreground/80 md:text-lg">High‑protein, low‑sugar, plant‑based ice cream. Designed for performance and pleasure.</p>
+        </div>
 
-            <ul className="mt-6 grid gap-3 md:grid-cols-2">
-              {features.map((f, idx) => (
-                <li
-                  key={f.title}
-                  className="rounded-2xl border border-foreground/10 bg-[--color-background] p-4 shadow-sm"
-                  style={{
-                    opacity: isRevealed || reduced ? 1 : 0,
-                    transform: reduced ? "none" : isRevealed ? "translateY(0)" : "translateY(8px)",
-                    transitionDelay: reduced ? "0s" : `${60 + idx * 40}ms`,
-                    transition: reduced
-                      ? "opacity 0.001s linear"
-                      : "opacity 220ms ease-out, transform 220ms cubic-bezier(0.22,1,0.36,1)",
-                  }}
-                >
-                  <div className="text-sm font-semibold text-foreground/85">{f.title}</div>
-                  <div className="mt-1 text-sm text-foreground/70">{f.desc}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Highlight card */}
-          <div className="relative order-first aspect-[4/3] overflow-hidden rounded-3xl border border-foreground/10 bg-white/60 shadow-sm backdrop-blur md:order-none">
-            <div className="absolute inset-0 bg-gradient-to-br from-[color:oklch(63%_0.215_20)/.12] via-white/40 to-transparent" aria-hidden />
-            <div className="absolute inset-0 grid place-items-center p-6 text-center">
+        <div className="mt-8 flex justify-center">
+          <GlassCard className="relative w-full max-w-2xl p-6 md:p-8">
+            <div aria-hidden className="pointer-events-none absolute inset-0">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:28px_28px]" />
+              <div className="absolute -left-24 -top-24 h-48 w-48 rounded-full bg-[var(--color-brand)]/15 blur-2xl" />
+              <div className="absolute -bottom-24 -right-20 h-48 w-48 rounded-full bg-[var(--color-brand)]/10 blur-2xl" />
+            </div>
+            <div className="relative grid place-items-center text-center">
               <div>
                 <div className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/60">Per Cup</div>
-                <div className="mt-1 text-6xl font-semibold tracking-tight md:text-7xl">
-                  {gramsPerCup}g
-                </div>
+                <div className="mt-1 text-6xl font-semibold tracking-tight md:text-7xl">{gramsPerCup}g</div>
                 <div className="mt-1 text-sm text-foreground/70">Protein</div>
 
-                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-white/70 px-4 py-1.5 text-sm font-medium text-foreground/85 shadow-sm">
-                  <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: "var(--color-brand)" }} />
-                  Vegan • Dairy‑Free
+                <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/30 px-3 py-1 text-xs font-medium text-foreground/85 backdrop-blur">Vegan</span>
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/30 px-3 py-1 text-xs font-medium text-foreground/85 backdrop-blur">Dairy‑Free</span>
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/30 px-3 py-1 text-xs font-medium text-foreground/85 backdrop-blur">0g Added Sugar</span>
+                </div>
+
+                <div className="mt-6 grid gap-3 text-left md:grid-cols-3">
+                  <div className="rounded-2xl border border-white/15 bg-white/10 p-3 text-sm shadow-sm backdrop-blur">
+                    <div className="text-foreground/60">Calories</div>
+                    <div className="font-semibold">80–100 kcal</div>
+                  </div>
+                  <div className="rounded-2xl border border-white/15 bg-white/10 p-3 text-sm shadow-sm backdrop-blur">
+                    <div className="text-foreground/60">Added Sugar</div>
+                    <div className="font-semibold">0 g</div>
+                  </div>
+                  <div className="rounded-2xl border border-white/15 bg-white/10 p-3 text-sm shadow-sm backdrop-blur">
+                    <div className="text-foreground/60">Serving Size</div>
+                    <div className="font-semibold">1 cup</div>
+                  </div>
+                </div>
+
+                <div className="mt-6">
+                  <div className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/60">Macro balance (illustrative)</div>
+                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full border border-white/15 bg-white/10">
+                    <div className="h-full w-[60%] bg-[--color-brand]" />
+                  </div>
+                  <div className="mt-1 flex items-center justify-between text-[11px] text-foreground/60">
+                    <span>Protein ~60%</span>
+                    <span>Carbs ~25%</span>
+                    <span>Fat ~15%</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex justify-center gap-3">
+                  <a href="/shop" className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/30 px-4 py-2 text-sm font-medium text-foreground/90 shadow-sm backdrop-blur transition-colors hover:bg-white/40">Shop flavours</a>
+                  <a href="/about" className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/20 px-4 py-2 text-sm font-medium text-foreground/85 shadow-sm backdrop-blur transition-colors hover:bg-white/30">Learn more</a>
                 </div>
               </div>
             </div>
-          </div>
+          </GlassCard>
         </div>
       </div>
     </section>

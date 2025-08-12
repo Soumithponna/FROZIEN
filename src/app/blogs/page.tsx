@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { BLOG_POSTS } from "./posts";
+import { GlassCard } from "@/components/shared/glass-card";
 
 export const metadata = {
-  title: "Blogs – Frozein",
-  description: "Stories, tips, and design notes from Frozein.",
+  title: "FROZEIN Blog | Healthy Dessert Tips & Nutrition Insights",
+  description: "Explore FROZEIN’s blog for health tips, nutrition trends, and ice cream updates.",
 };
 
 export default function BlogsPage() {
@@ -21,7 +22,7 @@ export default function BlogsPage() {
 
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {BLOG_POSTS.map((post) => (
-            <li key={post.slug} className="group overflow-hidden rounded-3xl border border-foreground/10 bg-white/60 shadow-sm backdrop-blur">
+            <GlassCard key={post.slug} as="li" className="group overflow-hidden">
               <div className="relative aspect-[4/3]">
                 <Image src={post.image} alt={post.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent" />
@@ -34,17 +35,17 @@ export default function BlogsPage() {
                 <p className="text-foreground/80">{post.excerpt}</p>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((t) => (
-                    <span key={t} className="inline-flex items-center rounded-full border border-foreground/10 bg-white/70 px-2.5 py-1 text-xs text-foreground/80 backdrop-blur">
+                    <span key={t} className="inline-flex items-center rounded-full border border-white/15 bg-white/30 px-2.5 py-1 text-xs text-foreground/80 backdrop-blur">
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="flex items-center justify-between border-t border-foreground/10 p-4 text-sm">
-                <a href={`/blogs/${post.slug}`} className="inline-flex items-center justify-center rounded-full border border-foreground/15 bg-white/70 px-3 py-1.5 font-medium text-foreground/90 shadow-sm backdrop-blur transition-colors hover:bg-white">Read</a>
+              <div className="flex items-center justify-between border-t border-white/20 p-4 text-sm">
+                <a href={`/blogs/${post.slug}`} className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/30 px-3 py-1.5 font-medium text-foreground/90 shadow-sm backdrop-blur transition-colors hover:bg-white/40">Read</a>
                 <a href="/shop" className="text-foreground/70 hover:text-foreground">Shop →</a>
               </div>
-            </li>
+            </GlassCard>
           ))}
         </ul>
       </section>

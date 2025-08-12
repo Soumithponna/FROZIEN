@@ -6,6 +6,12 @@ import { LayerAdvantage } from "@/components/layer-advantage/layer-advantage";
 import { DesignedToBeSeen } from "@/components/designed-to-be-seen/designed-to-be-seen";
 import { Protein } from "@/components/protein/protein";
 
+export const metadata = {
+  title: "FROZEIN | High-Protein, No Sugar Ice Cream – Guilt-Free Indulgence",
+  description:
+    "Discover FROZEIN, the protein-rich ice cream with no sugar and low calories. Perfect dessert for health-conscious food lovers.",
+};
+
 export default function Home() {
   return (
     <div className="font-sans">

@@ -1,6 +1,7 @@
 "use client";
 
 import { usePrefersReducedMotion, useRevealOnce } from "@/components/shared/motion";
+import { GlassCard } from "@/components/shared/glass-card";
 
 export interface WhyWeExistProps {
   items: { num: string; label: string }[];
@@ -33,9 +34,10 @@ export function WhyWeExist(_: WhyWeExistProps) {
           </div>
           <ul className="grid grid-cols-3 gap-3 md:gap-4">
             {[{ num: "2", label: "Founders" }, { num: "100+", label: "Recipes" }, { num: "1", label: "Formula" }].map(({ num, label }, idx) => (
-              <li
+              <GlassCard
+                as="li"
                 key={label}
-                className="rounded-2xl border border-foreground/10 bg-[--color-background] p-4 text-center shadow-sm"
+                className="p-4 text-center"
                 style={{
                   opacity: isRevealed || reduced ? 1 : 0,
                   transform: reduced ? "none" : isRevealed ? "translateY(0)" : "translateY(8px)",
@@ -47,7 +49,7 @@ export function WhyWeExist(_: WhyWeExistProps) {
               >
                 <div className="text-3xl font-semibold md:text-4xl">{num}</div>
                 <div className="mt-1 text-xs font-medium tracking-wide text-foreground/60 md:text-sm">{label}</div>
-              </li>
+              </GlassCard>
             ))}
           </ul>
         </div>

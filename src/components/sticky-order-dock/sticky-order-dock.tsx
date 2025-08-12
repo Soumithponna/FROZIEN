@@ -45,7 +45,7 @@ export function StickyOrderDock(props: StickyOrderDockProps) {
       ].join(" ")}
       data-visible={isVisible}
     >
-      <div className="pointer-events-auto mx-auto flex w-full max-w-md items-center gap-3 rounded-2xl border border-foreground/10 bg-[--color-background]/95 p-3 shadow-lg backdrop-blur-md md:max-w-xl">
+      <div className="pointer-events-auto mx-auto flex w-full max-w-md items-center gap-3 rounded-2xl border border-white/20 bg-white/10 p-3 shadow-lg backdrop-blur-xl md:max-w-xl">
         <a
           href={zeptoHref}
           target="_blank"
@@ -58,7 +58,7 @@ export function StickyOrderDock(props: StickyOrderDockProps) {
           href={swiggyHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 rounded-full border border-foreground/20 bg-background px-4 py-3 text-center text-sm font-medium text-foreground shadow-sm transition-[transform,opacity] duration-200 ease-out active:opacity-90 motion-safe:hover:scale-[1.02] motion-safe:active:scale-95"
+          className="flex-1 rounded-full border border-white/20 bg-white/30 px-4 py-3 text-center text-sm font-medium text-foreground shadow-sm backdrop-blur transition-[transform,opacity] duration-200 ease-out active:opacity-90 motion-safe:hover:scale-[1.02] motion-safe:active:scale-95"
         >
           Order on Swiggy
         </a>
